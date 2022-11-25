@@ -11,13 +11,22 @@ on:
   pull_request:
 
 jobs:
-  check_validator:
+  linters:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - name: Checks HTML5
-          uses: Cyb3r-Jak3/html5validator-action@v7.1.1
-          with:
-            root: '.'
-            # Can't recognize aspect-ratio rule
-            css: false
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install
+      - name: Run ESLint and Stylelint
+        run: npm run lint
+  check_validator:
+    needs: linters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Checks HTML5
+        uses: Cyb3r-Jak3/html5validator-action@v7.1.1
+        with:
+          root: '.'
+          # Can't recognize aspect-ratio rule
+          css: false
