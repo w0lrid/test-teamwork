@@ -11,7 +11,7 @@
 Подготовить локальную копию проекта:
 
 1. [Создать форк][fork] проекта и клонировать репозиторий на локальный компьютер
-1. Добавить апстрим в проект: `https://github.com/Ya-Praktikum-Team-2/test-teamwork.git`
+1. Добавить апстрим в проект: `git remote add upstream https://github.com/Ya-Praktikum-Team-2/test-teamwork.git`
 
 И создать пулл-реквест:
 
